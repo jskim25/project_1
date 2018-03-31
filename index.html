@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Moving</title>
+
+
+
+    <meta name="google-signin-client_id" content="167602757568-k6027cugtilquc0nh7oal29icsbs44ov.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="jumbotron text-center">
+
+            <h1>So You're Looking To Move
+                <br/>
+                <h2>CHICAGO</h2>
+                <small class="current-time"></small>
+            </h1>
+
+
+
+        </div>
+
+        <div class="row content">
+            <div class="col-sm-12 col-md-3">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add City</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" id="trainName">
+
+
+                            </div>
+
+
+
+                            <button type="submit" class="btn submit">Submit</button>
+                            <button type="reset" class="btn reset">Clear</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Results</h3>
+                    </div>
+                    <div class="panel-body table-responsive">
+                        <table class="table">
+                            <thead>
+
+                                <th class="text-center">Homes</th>
+                                <th class="text-center">Restaurants</th>
+
+                                <th></th>
+                            </thead>
+
+                            <tbody class="text-center">
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</body>
+
+</html>
