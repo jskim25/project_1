@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Moving</title>
+
+
+
+    <meta name="google-signin-client_id" content="167602757568-k6027cugtilquc0nh7oal29icsbs44ov.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Commented this out so I wouldn't get an error -->
+    <!-- <script src="assets/js/app.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="jumbotron text-center">
+
+            <h1>So You're Looking To Move
+
+            </h1>
+
+
+
+        </div>
+
+        <div class="row content">
+            <div class="col-sm-12 col-md-3">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <select type="text" class="form-control" id="cityName" placeholder="City">
+                                    <option value="">Cities</option>
+                                    <option>Chicago</option>
+                                    <option>New York</option>
+                                    <option>Los Angeles</option>
+                                    <option>Seattle</option>
+                                    <option>Miami</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select type="text" class="form-control" id="rangeIncome" placeholder="Range Income">
+                                    <option value="">Budget</option>
+
+                                    <option>$0 - $150,000</option>
+                                    <option>$151,000 - $200,000</option>
+                                    <option>$201,000 - $300,000</option>
+                                    <option>$301,000 - $500,000</option>
+                                    <option>$5k +</option>
+
+
+
+                                </select>
+                            </div>
+
+                            <fieldset disabled>
+                                <div class="form-group hidden">
+                                    <label for="trainKey">Train Key</label>
+                                    <input type="text" id="trainKey" class="form-control" placeholder="Disabled input">
+                                </div>
+                            </fieldset>
+
+
+                            <button type="submit" class="btn submit" id="submitBtn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Results</h3>
+                    </div>
+
+
+
+
+                    <div id="sub-main" class="two-columns">
+                        <div id="sub-left">
+
+                            HOMES
+                        </div>
+                        <div id="sub-right">
+                            RESTAURANTS
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
