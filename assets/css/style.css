@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .table>thead {
-  color: 00FA9A;
+  color: #00FA9A;
 }
 
 .current-time {
@@ -62,7 +62,7 @@ h1,h2,h3,h4,h5,h6 {
 .panel-title {
   font-size: 24px;
   letter-spacing: 2px;
-  color: ADD8E6;
+  color: #ADD8E6;
   border-bottom: 1px dotted #fff;
   margin: 10px 0;
   padding: 0 0 10px 0;
