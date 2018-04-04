@@ -1,33 +1,36 @@
-
-
 body {
-  font-family: 'Cinzel', serif;
-  background: #ADD8E6;
+  font-family: "Cinzel", serif;
+  background: #add8e6;
   color: #fff;
-  background-image: url(https://img1.etsystatic.com/012/0/5707165/il_570xN.461680439_n1tx.jpg);
+  background-image: url(http://www.conservativehome.com/wp-content/uploads/2013/10/Crumpled-US-flag.jpg);
   background-repeat: repeat;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'Cinzel', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cinzel", serif;
 }
 
 .container {
-  background: #ADD8E6;
+  background: #ffefd5;
   margin-top: 7vh;
   border-radius: 25px;
-  border: 15px double #FF0000;
+  border: 15px double #000080;
   padding: 0 40px 20px 40px;
 }
 
 .jumbotron {
   background: none;
-  text-shadow: 2px 2px 0px 	#000000;
+  text-shadow: 2px 2px 0px #000000;
 }
 
 .btn {
-  background: rgba(22,22,22,0.8);
-  color: #ADD8E6;
+  background: rgba(22, 22, 22, 0.8);
+  color: #add8e6;
   border: 2px #000 solid;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
@@ -37,21 +40,25 @@ h1,h2,h3,h4,h5,h6 {
 .btn:hover {
   color: #fff;
   background: #000000;
-  border: 2px #ADD8E6 solid;
+  border: 2px #add8e6 solid;
 }
 
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
   vertical-align: middle;
 }
 
-.table>thead {
-  color: #00FA9A;
+.table > thead {
+  color: 00fa9a;
 }
 
 .current-time {
-  color: #ADD8E6;
+  color: #add8e6;
   text-shadow: none;
-
 }
 
 .panel {
@@ -62,19 +69,90 @@ h1,h2,h3,h4,h5,h6 {
 .panel-title {
   font-size: 24px;
   letter-spacing: 2px;
-  color: #ADD8E6;
+  color: ADD8E6;
   border-bottom: 1px dotted #fff;
   margin: 10px 0;
   padding: 0 0 10px 0;
-  text-shadow: 2px 2px 0px 	#fff;
-  color: #000000
+  text-shadow: 2px 2px 0px #fff;
+  color: #000000;
+}
+
+#sub-left {
+  color: #000000;
+}
+
+#sub-right {
+  color: #000000;
 }
 
 .help-block {
   color: #fff;
 }
 
-.text-center{
-    text-shadow: 2px 2px 0px 	#fff;
-    color: #000000
+.text-center {
+  /* this class isn't centering text */
+  text-shadow: 2px 2px 0px #fff;
+  color: #000000;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.two-columns {
+  display: table;
+  table-layout: fixed;
+
+  width: 100%;
+}
+.two-columns div {
+  display: table-cell;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#sub-main div {
+  vertical-align: top;
 }
