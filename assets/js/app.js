@@ -217,115 +217,115 @@ $(document).ready(function () {
 
 
 
-var sampleResult = {  
-    "result":[  
-       {  
-          "id":"248817124",
-          "title":"Simpatico Opening Reception",
-          "description":"Relationships, like nature,\u00a0when adequately cultivated blossom into healthy new growth.\u00a0With the collaborative exhibition \u2018Simpatico,\u2019 co-curators Alix Sloan (Sloan Fine Art) and Lori Johns (Ph...",
-          "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/phylogeny-contemporary\/simpatico-opening-reception\/248817124\/2\/",
-          "ticket":null,
-          "category":"Socializing",
-          "date":"2018-04-07T02:00:00-07:00",
-          "duration":2,
-          "venue":"Phylogeny Contemporary",
-          "address":"2718 Elliott Avenue",
-          "city":"Seattle",
-          "zip":"",
-          "country":null,
-          "lat":null,
-          "lng":null,
-          "distance":1.8185,
-          "images":[  
+// var sampleResult = {  
+//     "result":[  
+//        {  
+//           "id":"248817124",
+//           "title":"Simpatico Opening Reception",
+//           "description":"Relationships, like nature,\u00a0when adequately cultivated blossom into healthy new growth.\u00a0With the collaborative exhibition \u2018Simpatico,\u2019 co-curators Alix Sloan (Sloan Fine Art) and Lori Johns (Ph...",
+//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/phylogeny-contemporary\/simpatico-opening-reception\/248817124\/2\/",
+//           "ticket":null,
+//           "category":"Socializing",
+//           "date":"2018-04-07T02:00:00-07:00",
+//           "duration":2,
+//           "venue":"Phylogeny Contemporary",
+//           "address":"2718 Elliott Avenue",
+//           "city":"Seattle",
+//           "zip":"",
+//           "country":null,
+//           "lat":null,
+//           "lng":null,
+//           "distance":1.8185,
+//           "images":[  
  
-          ],
-          "videos":[  
+//           ],
+//           "videos":[  
  
-          ],
-          "performers":[  
+//           ],
+//           "performers":[  
  
-          ]
-       },
-       {  
-          "id":"249369871",
-          "title":"Onyx Fine Arts Collective TruthBTold Commemorative Book Launch",
-          "description":"From January 8, 2017 through February 18, 2017 Onyx Fine Arts Collective mounted the largest ever exhibition of art by Pacific Northwest visual artists of African descent. Our 12th Annual Exhibit, Tr...",
-          "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/gallery-onyx\/onyx-fine-arts-collective-truthbtold-commemorative-book-launch\/249369871\/2\/",
-          "ticket":null,
-          "category":"Socializing",
-          "date":"2018-04-07T23:00:00-07:00",
-          "duration":4,
-          "venue":"Gallery ONYX",
-          "address":"600 Pine St ",
-          "city":"Seattle",
-          "zip":"98101",
-          "country":null,
-          "lat":null,
-          "lng":null,
-          "distance":0.5342,
-          "images":[  
+//           ]
+//        },
+//        {  
+//           "id":"249369871",
+//           "title":"Onyx Fine Arts Collective TruthBTold Commemorative Book Launch",
+//           "description":"From January 8, 2017 through February 18, 2017 Onyx Fine Arts Collective mounted the largest ever exhibition of art by Pacific Northwest visual artists of African descent. Our 12th Annual Exhibit, Tr...",
+//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/gallery-onyx\/onyx-fine-arts-collective-truthbtold-commemorative-book-launch\/249369871\/2\/",
+//           "ticket":null,
+//           "category":"Socializing",
+//           "date":"2018-04-07T23:00:00-07:00",
+//           "duration":4,
+//           "venue":"Gallery ONYX",
+//           "address":"600 Pine St ",
+//           "city":"Seattle",
+//           "zip":"98101",
+//           "country":null,
+//           "lat":null,
+//           "lng":null,
+//           "distance":0.5342,
+//           "images":[  
  
-          ],
-          "videos":[  
+//           ],
+//           "videos":[  
  
-          ],
-          "performers":[  
+//           ],
+//           "performers":[  
  
-          ]
-       },
-       {  
-          "id":"244865343",
-          "title":"Showcase @ Couth Buzzard [Roster Full]",
-          "description":"Slot 1\u00a0 Notable Journey (www.notablejourney.com) Slot 2 \u00a0Michael Ashe (www.michaelashemusic.com) Slot 3 \u00a0Tom Esch (www.tomeschmusic.com) Slot 4 \u00a0Roo Forrest (host) (www.rooforrest.com) Couth Buzz...",
-          "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/couth-buzzard-espresso-buono\/showcase-couth-buzzard-roster-full\/244865343\/2\/",
-          "ticket":null,
-          "category":"Socializing",
-          "date":"2018-04-08T04:30:00-07:00",
-          "duration":"",
-          "venue":"Couth Buzzard Espresso Buono",
-          "address":"8310 Greenwood Ave. N.",
-          "city":"Seattle",
-          "zip":"98103",
-          "country":null,
-          "lat":null,
-          "lng":null,
-          "distance":9.042299999999999,
-          "images":[  
+//           ]
+//        },
+//        {  
+//           "id":"244865343",
+//           "title":"Showcase @ Couth Buzzard [Roster Full]",
+//           "description":"Slot 1\u00a0 Notable Journey (www.notablejourney.com) Slot 2 \u00a0Michael Ashe (www.michaelashemusic.com) Slot 3 \u00a0Tom Esch (www.tomeschmusic.com) Slot 4 \u00a0Roo Forrest (host) (www.rooforrest.com) Couth Buzz...",
+//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/couth-buzzard-espresso-buono\/showcase-couth-buzzard-roster-full\/244865343\/2\/",
+//           "ticket":null,
+//           "category":"Socializing",
+//           "date":"2018-04-08T04:30:00-07:00",
+//           "duration":"",
+//           "venue":"Couth Buzzard Espresso Buono",
+//           "address":"8310 Greenwood Ave. N.",
+//           "city":"Seattle",
+//           "zip":"98103",
+//           "country":null,
+//           "lat":null,
+//           "lng":null,
+//           "distance":9.042299999999999,
+//           "images":[  
  
-          ],
-          "videos":[  
+//           ],
+//           "videos":[  
  
-          ],
-          "performers":[  
+//           ],
+//           "performers":[  
  
-          ]
-       },
-       {  
-          "id":"249398060",
-          "title":"MONTHLY MOBILE MEET UP (IOS \/ ANDROID)",
-          "description":"We have a room reserved in the back. Head to the left and enter through the mirror door. Event: Mobile Meet Up for iOS and Android (Happy Hour) Time: 6:00-7:30PM TEKsystems is inviting you to a busin...",
-          "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/liberty-bar\/monthly-mobile-meet-up-ios-android\/249398060\/2\/",
-          "ticket":null,
-          "category":"Socializing",
-          "date":"2018-04-21T02:30:00-07:00",
-          "duration":2,
-          "venue":"Liberty Bar",
-          "address":"517 15th ave E",
-          "city":"Seattle",
-          "zip":"",
-          "country":null,
-          "lat":null,
-          "lng":null,
-          "distance":1.9801,
-          "images":[  
+//           ]
+//        },
+//        {  
+//           "id":"249398060",
+//           "title":"MONTHLY MOBILE MEET UP (IOS \/ ANDROID)",
+//           "description":"We have a room reserved in the back. Head to the left and enter through the mirror door. Event: Mobile Meet Up for iOS and Android (Happy Hour) Time: 6:00-7:30PM TEKsystems is inviting you to a busin...",
+//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/liberty-bar\/monthly-mobile-meet-up-ios-android\/249398060\/2\/",
+//           "ticket":null,
+//           "category":"Socializing",
+//           "date":"2018-04-21T02:30:00-07:00",
+//           "duration":2,
+//           "venue":"Liberty Bar",
+//           "address":"517 15th ave E",
+//           "city":"Seattle",
+//           "zip":"",
+//           "country":null,
+//           "lat":null,
+//           "lng":null,
+//           "distance":1.9801,
+//           "images":[  
  
-          ],
-          "videos":[  
+//           ],
+//           "videos":[  
  
-          ],
-          "performers":[  
+//           ],
+//           "performers":[  
  
-          ]
-       }
-    ]
- }
+//           ]
+//        }
+//     ]
+//  }
