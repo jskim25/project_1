@@ -1,6 +1,7 @@
 
 
-var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_type=city&entity_id=292&count=10"
+var queryURL = "https://www.zomato.com/chicago/italian-village-loop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+//"https://developers.zomato.com/api/v2.1/search?entity_type=city&entity_id=292&count=10"
 
 // "https://developers.zomato.com/api/v2.1/collections?city_id=292&count=10"
 
@@ -13,7 +14,7 @@ var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_type=city&e
         }
         }).then(function(response) {
         
-        var results = response.restaurants;
+        var results = response;
 
         console.log(results);
 
