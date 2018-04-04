@@ -6,13 +6,25 @@
     <title>Hotel History</title>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>-->
-    <!-- Commented this out so I wouldn't get an error -->
-    <!-- <script src="assets/js/app.js"></script> -->
+
+    <!-- Please don't remove this jquery CDN url. -->
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+
+  <!-- Commented this out so I wouldn't get an error -->
+    <!-- I put it back in because it is AWESOME!!! -->
+    <script src="assets/js/app.js"></script>
     <meta name="google-signin-client_id" content="167602757568-k6027cugtilquc0nh7oal29icsbs44ov.apps.googleusercontent.com">
     <meta name="google-signin-cookiepolicy" content="single_host_origin">
     <meta name="google-signin-scope" content="profile email">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE&libraries=places"></script>
+    <!-- keith: I took this out because Google Maps API error: -->
+    <!-- RefererNotAllowedMapError https://developers.google.com/maps/documentation/javascript/error-messages#referer-not-allowed-map-error -->
+    <!-- Your site URL to be authorized: __file_url__//C:/Users/kfuller/Desktop/code/project_1/index.html? -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE&libraries=places"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">

@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
 $(document).ready(function () {
     var debug = true;
     function dlog(m) {
@@ -100,6 +98,7 @@ $(document).ready(function () {
 
 
     })
+})
     
 
 
@@ -210,7 +209,7 @@ $(document).ready(function () {
     // .done(function(result) {
     //     dlog(result);
     // })
-})
+// })
 
 
 // Testing "whateverorigin.org" as a CORS proxy.
