@@ -87,6 +87,9 @@ $(document).ready(function () {
                     // dlog(`${element.title} ${element.address}`);
                     if (element.address != '') {
                         dlog(`Event --> ${element.title} ${element.address}`);
+                        var newDiv = $('<div>');
+                        $(newDiv).append($('<p>').text(element.title));
+                        $('#sub-left').append(newDiv);
                     }
                 });
             })

@@ -153,6 +153,8 @@ h6 {
   text-align: center;
 }
 
+/* by keith - to get the 'hotels' to stack veertically vice horiz.  i'm sure there's a better way... */
 #sub-main div {
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
 }
