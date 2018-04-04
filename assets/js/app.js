@@ -2,11 +2,15 @@
 $(document).ready(function () {
 
     $.ajax({
-        url:    "https://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=X1-ZWz1gbt99772tn_adn99&state=il&city=chicago&childtype=neighborhood",    
+        url:    "https://maps.googleapis.com/maps/api/place/nearbysearch/json",    
         method: 'GET',
         dataType: 'xml',
-        headers: {
-            'Access-Control-Allow-Origin': '*'
+        crossDomain: true,
+        data: {
+            location: '41.881832, -87.623177',
+            radius: 24000,
+            type: 'hotel',
+            key: 'AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE'
         }
     })
     .done(function(result) {
