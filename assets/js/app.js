@@ -1,3 +1,25 @@
+function initMap() {
+    // map options
+    var options = {
+        zoom: 8,
+        center: {lat: 41.8781, lng: -87.6298}
+    }
+    
+    // new map set to whatever is in 'options'
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    // add marker on chicago
+    var marker = new google.maps.Marker({
+        position: {lat: 41.8781, lng: -87.6298},
+        map: map,
+    })
+    var infoWindow = new google.maps.InfoWindow({
+        content: "<h1>Chicago IL</h1>"
+    })
+    marker.addListener("click", function() {
+        infoWindow.open(map, marker);
+    })
+}
+
 $(document).ready(function () {
     var debug = true;
     function dlog(m) {
@@ -57,49 +79,9 @@ $(document).ready(function () {
             }
         })
         .done(function(result) {
-            // dlog(result)
-            dlog('Starting events query');
-            lat = result.Results[0].lat;
-            lon = result.Results[0].lon;
-            ll  = result.Results[0].ll;
-            dlog(`LAT/LON: ${lat} ${lon} ${ll}`);
-            //Get the events happening in that city within the next 6 months.
-            $.ajax({
-                url: 'https://robby.p.mashape.com/search.json',
-                method: 'GET',
-                type: 'json',
-                crossDomain: true,
-                headers: {
-                    'X-Mashape-Key': 'cmmPLJwYt7mshE6N1VSViGduRp4cp1DKGYZjsnLENenEatXvK1',
-                },
-                data: {
-                    lat:    lat,
-                    lng:    lon,
-                    from: fromTime,
-                    to: toTime,
-                    distance: 25,
-                    limit:  10
-                }
-            })
-            .done(function(result) {
-                dlog(`Events Result: ${result}`)
-                result.result.forEach(element => {
-                    // dlog(`${element.title} ${element.address}`);
-                    if (element.address != '') {
-                        dlog(`Event --> ${element.title} ${element.address}`);
-                        var newDiv = $('<div>');
-                        $(newDiv).append($('<p>').text(element.title));
-                        $('#sub-left').append(newDiv);
-                    }
-                });
-            })
+            dlog(`will call initMap next`);
+            initMap(lat, lon, cityName);
         })
-
-
-
-            
-
-
     })
 })
     
@@ -331,3 +313,5 @@ $(document).ready(function () {
 //        }
 //     ]
 //  }
+
+
