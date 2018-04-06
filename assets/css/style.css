@@ -169,9 +169,3 @@ h6 {
   display: flex;
   justify-content: space-between;
 }
-
-
-#map{
-  height: 400px;
-  width: 100%;
-}
