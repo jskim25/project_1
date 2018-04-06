@@ -1,7 +1,10 @@
 $(document).ready(function () {
+            //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+            // &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+            // &markers=color:red%7Clabel:C%7C40.718217,-73.998284
+            // &key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE
 
     var mapData = {
-        url: ,
         zoom: 13,
         size: '600x150',
         maptype: 'roadmap',
@@ -69,19 +72,8 @@ $(document).ready(function () {
         })
         .done(function(result) {
             dlog(`will dreaw static map next`);
-            //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-            // &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-            // &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-            // &key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE
-            var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?';
 
-            mapUrl += '&zoom=13';
-            mapUrl += '&size=600x150';
-            mapUrl += '&maptype=roadmap';
-            mapUrl += '&key=AIzaSyACZ7_uSZkB04YgT3vZ1zuLyEmmzS5ZqXs';
-
-            mapUrl += `&center=${cityName}`
-
+            var mapUrl = mapUrl(mapData);
             var newImg = $('<img>');
             $(newImg).attr('src',mapUrl);
 
