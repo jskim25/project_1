@@ -62,7 +62,7 @@ $(document).ready(function () {
             var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?';
 
             mapUrl += '&zoom=13';
-            mapUrl += '&size=1200x300';
+            mapUrl += '&size=600x150';
             mapUrl += '&maptype=roadmap';
             mapUrl += '&key=AIzaSyACZ7_uSZkB04YgT3vZ1zuLyEmmzS5ZqXs';
 
@@ -74,6 +74,45 @@ $(document).ready(function () {
             $('#sub-right').empty();
             $('#sub-right').append(newImg);
             
+        })
+        .done(function(result) {
+            // dlog(result)
+            dlog('Starting events query');
+            lat = result.Results[0].lat;
+            lon = result.Results[0].lon;
+            ll  = result.Results[0].ll;
+            dlog(`LAT/LON: ${lat} ${lon} ${ll}`);
+            //Get the events happening in that city within the next 6 months.
+            $.ajax({
+                url: 'https://robby.p.mashape.com/search.json',
+                method: 'GET',
+                type: 'json',
+                crossDomain: true,
+                headers: {
+                    'X-Mashape-Key': 'cmmPLJwYt7mshE6N1VSViGduRp4cp1DKGYZjsnLENenEatXvK1',
+                },
+                data: {
+                    lat:    lat,
+                    lng:    lon,
+                    from: fromTime,
+                    to: toTime,
+                    distance: 25,
+                    limit:  10
+                }
+            })
+            .done(function(result) {
+                dlog(`Events Result: ${result}`)
+                result.result.forEach(element => {
+                    // dlog(`${element.title} ${element.address}`);
+                    if (element.address != '') {
+                        dlog(`Event --> ${element.title} ${element.address}`);
+                        var newDiv = $('<div>');
+                        $(newDiv).append($('<p>').text(element.title));
+                        $('#sub-left').empty();
+                        $('#sub-left').append(newDiv);
+                    }
+                });
+            })
         })
     })
 })
