@@ -1,8 +1,8 @@
 body {
   font-family: "Cinzel", serif;
-  background: #add8e6;
+  background: #ff00ff;
   color: #fff;
-  background-image: url(http://www.conservativehome.com/wp-content/uploads/2013/10/Crumpled-US-flag.jpg);
+  background-image: url(http://wallpapers-best.com/uploads/posts/2015-10/17_yellow_abstract.jpg);
   background-repeat: repeat;
 }
 
@@ -16,10 +16,10 @@ h6 {
 }
 
 .container {
-  background: #ffefd5;
+  background: #dcdcdc;
   margin-top: 7vh;
   border-radius: 25px;
-  border: 15px double #000080;
+  border: 15px double #000000;
   padding: 0 40px 20px 40px;
 }
 
@@ -30,7 +30,7 @@ h6 {
 
 .btn {
   background: rgba(22, 22, 22, 0.8);
-  color: #add8e6;
+  color: #ffff00;
   border: 2px #000 solid;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
@@ -96,7 +96,7 @@ h6 {
 }
 
 .dropbtn {
-  background-color: #3498db;
+  background-color: #000000;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -106,7 +106,7 @@ h6 {
 
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #2980b9;
+  background-color: #000000;
 }
 
 .dropdown {
@@ -155,4 +155,17 @@ h6 {
 
 #sub-main div {
   vertical-align: top;
+}
+
+.weather {
+  color: #000000;
+}
+
+.itinerary {
+  color: #000000;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
 }
