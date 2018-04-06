@@ -1,26 +1,3 @@
-
-function initMap() {
-    // map options
-    var options = {
-        zoom: 8,
-        center: {lat: 41.8781, lng: -87.6298}
-    }
-    
-    // new map set to whatever is in 'options'
-    var map = new google.maps.Map(document.getElementById('map'), options);
-    // add marker on chicago
-    var marker = new google.maps.Marker({
-        position: {lat: 41.8781, lng: -87.6298},
-        map: map,
-    })
-    var infoWindow = new google.maps.InfoWindow({
-        content: "<h1>Chicago IL</h1>"
-    })
-    marker.addListener("click", function() {
-        infoWindow.open(map, marker);
-    })
-}
-
 $(document).ready(function () {
             //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
             // &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
@@ -31,13 +8,13 @@ $(document).ready(function () {
         zoom: 13,
         size: '600x150',
         maptype: 'roadmap',
-        key: 'AIzaSyACZ7_uSZkB04YgT3vZ1zuLyEmmzS5ZqXs',
+        key: 'AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE',
         center: ''
     }
 
     function makeUrl(mapData) {
         var url = 'https://maps.googleapis.com/maps/api/staticmap?';
-        return $url + '?' + $param(mapData)
+        return url + '?' + $.param(mapData)
     }
     var debug = true;
     function dlog(m) {
@@ -68,7 +45,7 @@ $(document).ready(function () {
     var addresses = [];
 
 
-    //When user clicks submit
+    //When user changes the dropdown
     $('#cityName').on('change', function(e) {
         if ($('#cityName').val() != "") {
             cityName=$('#cityName').val();
@@ -81,6 +58,11 @@ $(document).ready(function () {
         dlog('event: ' + e);
 
         //Get the lat/long of the city and state.
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        //  LAT/LONG
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
         $.ajax({
             url: 'https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php',
             method: 'GET',
@@ -94,16 +76,29 @@ $(document).ready(function () {
             }
         })
         .done(function(result) {
-            dlog(`will dreaw static map next`);
-
+            ////////////////////////////////////////////////
+            ////////////////////////////////////////////////
+            ///  STATIC MAP
+            ////////////////////////////////////////////////
+            ////////////////////////////////////////////////
+            dlog(`will draw static map next`);
+            var U = makeUrl(mapData);
             var newImg = $('<img>');
-            $(newImg).attr('src',makeUrl(mapData));
+            $(newImg).attr('src',U);
+
+            dlog(`newURL: ${U}`)
 
             $('#sub-right').empty();
             $('#sub-right').append(newImg);
             
         })
         .done(function(result) {
+            ////////////////////////////////////////////////
+            ////////////////////////////////////////////////
+            ///  EVENT QUERY
+            ////////////////////////////////////////////////
+            ////////////////////////////////////////////////
+
             // dlog(result)
             dlog('Starting events query');
             lat = result.Results[0].lat;
@@ -135,7 +130,7 @@ $(document).ready(function () {
                     if (element.address != '') {
                         dlog(`Event --> ${element.title} ${element.address}`);
                         var newDiv = $('<div>');
-                        $(newDiv).append($('<p>').text(element.title).class('eventLnk'));
+                        $(newDiv).append($('<p>').text(element.title).addClass('eventLnk'));
                         $('#sub-left').empty();
                         $('#sub-left').append(newDiv);
                     }
