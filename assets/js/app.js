@@ -1,56 +1,23 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    var result_chicago = 
+    var mapData = {
+        url: ,
+        zoom: 13,
+        size: '600x150',
+        maptype: 'roadmap',
+        key: 'AIzaSyACZ7_uSZkB04YgT3vZ1zuLyEmmzS5ZqXs',
+        center: ''
+    }
 
-    $('#submitBtn').on('click', function(event) {
-        // event.preventDefault();
-        // $.ajax({
-        //     url:    "https://maps.googleapis.com/maps/api/place/nearbysearch/json",    
-        //     method: 'GET',
-        //     data: {
-        //         location: '41.881832, -87.623177',
-        //         radius: 24000,
-        //         type: 'hotel',
-        //         key: 'AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE'
-        //     }
-        // })
-        // .done(function(result) {
-        //     console.log(result);
-        // })
-
-
-        var map;
-        var service;
-        var infowindow;
-        
-        function initialize() {
-          var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
-        
-          map = new google.maps.Map(document.getElementById('map'), {
-              center: pyrmont,
-              zoom: 15
-            });
-        
-          var request = {
-            location: pyrmont,
-            radius: '500',
-            type: ['restaurant']
-          };
-        
-          service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
+    function mapUrl(mapData) {
+        var url = 'https://maps.googleapis.com/maps/api/staticmap?';
+        return $url + '?' + $param(mapData)
+    }
+    var debug = true;
+    function dlog(m) {
+        if (debug) {
+            console.log(m)
         }
-<<<<<<< HEAD
-        
-        function callback(results, status) {
-          if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              var place = results[i];
-              createMarker(results[i]);
-            }
-          }
-        }
-=======
     }
     //We are only querying the events API for events within the next 365 days.        
     var fromTime = new Date(Date.now());
@@ -154,132 +121,18 @@ $(document).ready(function() {
                     if (element.address != '') {
                         dlog(`Event --> ${element.title} ${element.address}`);
                         var newDiv = $('<div>');
-                        $(newDiv).append($('<p>').text(element.title));
+                        $(newDiv).append($('<p>').text(element.title).class('eventLnk'));
                         $('#sub-left').empty();
                         $('#sub-left').append(newDiv);
                     }
                 });
             })
         })
->>>>>>> 9f6f4ed7f5dbab71e6690ce42a95832cde081674
     })
 })
+    
 
 
-<<<<<<< HEAD
-=======
-// var sampleResult = {  
-//     "result":[  
-//        {  
-//           "id":"248817124",
-//           "title":"Simpatico Opening Reception",
-//           "description":"Relationships, like nature,\u00a0when adequately cultivated blossom into healthy new growth.\u00a0With the collaborative exhibition \u2018Simpatico,\u2019 co-curators Alix Sloan (Sloan Fine Art) and Lori Johns (Ph...",
-//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/phylogeny-contemporary\/simpatico-opening-reception\/248817124\/2\/",
-//           "ticket":null,
-//           "category":"Socializing",
-//           "date":"2018-04-07T02:00:00-07:00",
-//           "duration":2,
-//           "venue":"Phylogeny Contemporary",
-//           "address":"2718 Elliott Avenue",
-//           "city":"Seattle",
-//           "zip":"",
-//           "country":null,
-//           "lat":null,
-//           "lng":null,
-//           "distance":1.8185,
-//           "images":[  
- 
-//           ],
-//           "videos":[  
- 
-//           ],
-//           "performers":[  
- 
-//           ]
-//        },
-//        {  
-//           "id":"249369871",
-//           "title":"Onyx Fine Arts Collective TruthBTold Commemorative Book Launch",
-//           "description":"From January 8, 2017 through February 18, 2017 Onyx Fine Arts Collective mounted the largest ever exhibition of art by Pacific Northwest visual artists of African descent. Our 12th Annual Exhibit, Tr...",
-//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/gallery-onyx\/onyx-fine-arts-collective-truthbtold-commemorative-book-launch\/249369871\/2\/",
-//           "ticket":null,
-//           "category":"Socializing",
-//           "date":"2018-04-07T23:00:00-07:00",
-//           "duration":4,
-//           "venue":"Gallery ONYX",
-//           "address":"600 Pine St ",
-//           "city":"Seattle",
-//           "zip":"98101",
-//           "country":null,
-//           "lat":null,
-//           "lng":null,
-//           "distance":0.5342,
-//           "images":[  
- 
-//           ],
-//           "videos":[  
- 
-//           ],
-//           "performers":[  
- 
-//           ]
-//        },
-//        {  
-//           "id":"244865343",
-//           "title":"Showcase @ Couth Buzzard [Roster Full]",
-//           "description":"Slot 1\u00a0 Notable Journey (www.notablejourney.com) Slot 2 \u00a0Michael Ashe (www.michaelashemusic.com) Slot 3 \u00a0Tom Esch (www.tomeschmusic.com) Slot 4 \u00a0Roo Forrest (host) (www.rooforrest.com) Couth Buzz...",
-//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/couth-buzzard-espresso-buono\/showcase-couth-buzzard-roster-full\/244865343\/2\/",
-//           "ticket":null,
-//           "category":"Socializing",
-//           "date":"2018-04-08T04:30:00-07:00",
-//           "duration":"",
-//           "venue":"Couth Buzzard Espresso Buono",
-//           "address":"8310 Greenwood Ave. N.",
-//           "city":"Seattle",
-//           "zip":"98103",
-//           "country":null,
-//           "lat":null,
-//           "lng":null,
-//           "distance":9.042299999999999,
-//           "images":[  
- 
-//           ],
-//           "videos":[  
- 
-//           ],
-//           "performers":[  
- 
-//           ]
-//        },
-//        {  
-//           "id":"249398060",
-//           "title":"MONTHLY MOBILE MEET UP (IOS \/ ANDROID)",
-//           "description":"We have a room reserved in the back. Head to the left and enter through the mirror door. Event: Mobile Meet Up for iOS and Android (Happy Hour) Time: 6:00-7:30PM TEKsystems is inviting you to a busin...",
-//           "url":"https:\/\/www.robby.ai\/e\/seattle\/socializing\/liberty-bar\/monthly-mobile-meet-up-ios-android\/249398060\/2\/",
-//           "ticket":null,
-//           "category":"Socializing",
-//           "date":"2018-04-21T02:30:00-07:00",
-//           "duration":2,
-//           "venue":"Liberty Bar",
-//           "address":"517 15th ave E",
-//           "city":"Seattle",
-//           "zip":"",
-//           "country":null,
-//           "lat":null,
-//           "lng":null,
-//           "distance":1.9801,
-//           "images":[  
- 
-//           ],
-//           "videos":[  
- 
-//           ],
-//           "performers":[  
- 
-//           ]
-//        }
-//     ]
-//  }
 
 
->>>>>>> 9f6f4ed7f5dbab71e6690ce42a95832cde081674
+    
