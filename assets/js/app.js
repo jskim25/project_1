@@ -1,25 +1,3 @@
-function initMap() {
-    // map options
-    var options = {
-        zoom: 8,
-        center: {lat: 41.8781, lng: -87.6298}
-    }
-    
-    // new map set to whatever is in 'options'
-    var map = new google.maps.Map(document.getElementById('map'), options);
-    // add marker on chicago
-    var marker = new google.maps.Marker({
-        position: {lat: 41.8781, lng: -87.6298},
-        map: map,
-    })
-    var infoWindow = new google.maps.InfoWindow({
-        content: "<h1>Chicago IL</h1>"
-    })
-    marker.addListener("click", function() {
-        infoWindow.open(map, marker);
-    })
-}
-
 $(document).ready(function () {
     var debug = true;
     function dlog(m) {
@@ -48,17 +26,14 @@ $(document).ready(function () {
     var lon = '';
     var ll  = '';
     var addresses = [];
-     // WhenEVER user changes the city dropdown, update the cityName variable to what they chose.
+
+
+    //When user clicks submit
     $('#cityName').on('change', function(e) {
         if ($('#cityName').val() != "") {
             cityName=$('#cityName').val();
         }
-        dlog(`City is now ${cityName}`);
-    })
-
-
-    //When user clicks submit
-    $('form').on('submit', function(e) {
+        dlog(`City is now ${cityName}`);        
         e.preventDefault();
         // Do nothing if they haven't selected a city.
         // TODO smack user for doing that.
@@ -79,8 +54,26 @@ $(document).ready(function () {
             }
         })
         .done(function(result) {
-            dlog(`will call initMap next`);
-            initMap(lat, lon, cityName);
+            dlog(`will dreaw static map next`);
+            //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+            // &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+            // &markers=color:red%7Clabel:C%7C40.718217,-73.998284
+            // &key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE
+            var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?';
+
+            mapUrl += '&zoom=13';
+            mapUrl += '&size=1200x300';
+            mapUrl += '&maptype=roadmap';
+            mapUrl += '&key=AIzaSyACZ7_uSZkB04YgT3vZ1zuLyEmmzS5ZqXs';
+
+            mapUrl += `&center=${cityName}`
+
+            var newImg = $('<img>');
+            $(newImg).attr('src',mapUrl);
+
+            $('#sub-right').empty();
+            $('#sub-right').append(newImg);
+            
         })
     })
 })
