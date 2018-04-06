@@ -1,3 +1,26 @@
+
+function initMap() {
+    // map options
+    var options = {
+        zoom: 8,
+        center: {lat: 41.8781, lng: -87.6298}
+    }
+    
+    // new map set to whatever is in 'options'
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    // add marker on chicago
+    var marker = new google.maps.Marker({
+        position: {lat: 41.8781, lng: -87.6298},
+        map: map,
+    })
+    var infoWindow = new google.maps.InfoWindow({
+        content: "<h1>Chicago IL</h1>"
+    })
+    marker.addListener("click", function() {
+        infoWindow.open(map, marker);
+    })
+}
+
 $(document).ready(function () {
             //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
             // &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
@@ -12,7 +35,7 @@ $(document).ready(function () {
         center: ''
     }
 
-    function mapUrl(mapData) {
+    function makeUrl(mapData) {
         var url = 'https://maps.googleapis.com/maps/api/staticmap?';
         return $url + '?' + $param(mapData)
     }
@@ -73,9 +96,8 @@ $(document).ready(function () {
         .done(function(result) {
             dlog(`will dreaw static map next`);
 
-            var mapUrl = mapUrl(mapData);
             var newImg = $('<img>');
-            $(newImg).attr('src',mapUrl);
+            $(newImg).attr('src',makeUrl(mapData));
 
             $('#sub-right').empty();
             $('#sub-right').append(newImg);
