@@ -2,7 +2,7 @@ function weather(temp){
 var lat = result.Results[0].lat;
 var lon = result.Results[0].log;
 var ll = result.Results[0].ll;
-var queryURL = "https://simple-weather.p.mashape.com/weather?lat=" + lat + "&lng=' + lon + '";
+var queryURL = "https://simple-weather.p.mashape.com/weather?lat=" + lat + "&lng=" + lon + "";
 
         $.ajax({
         url: queryURL,
