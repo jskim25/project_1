@@ -8,10 +8,8 @@ $(document).on('click', '#submitBtn', function() {
     // run the function that gets the lat-long coordinates
     getCoordinates()
 
-    // run the function that gets the map to load
-    initMap();
-    
-});
+   
+}).done(displayMap(cityName));
 
 function initMap() {
     // map options
@@ -83,7 +81,7 @@ function getEvents() {
             $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
         };
     })
-    .done(displayMap(cityName))
+    
 }
 
 // $(document).ready(function () {
