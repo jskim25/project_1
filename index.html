@@ -17,19 +17,18 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <!-- MAIN STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Jquery firebase (put into app.js) -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- MAP JS -->
+    <script src="assets/js/map.js"></script>
+    <!-- FIREBASE JS -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="weather" id="weather">
-                <h3>Weather</h3>
-            </div>
-            <div class="itinerary">
-                <h3>Itinerary</h3>
-            </div>
-        </div>
-
         <div class="jumbotron text-center">
             <h1>Events by City</h1>
         </div>
@@ -45,7 +44,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="cityName" placeholder="City">
                                 <select type="text" class="form-control" id="stateName" placeholder="State">
-                                    <option value="">Cities</option>
+                                    <option value="">State</option>
                                     <option>Alabama - AL</option>
                                     <option>Alaska - AK</option>
                                     <option>Arizona - AZ</option>
@@ -140,7 +139,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div id="itinerary">
+                <div id="todo-list">
                     <h1>To Do List</h1>
                 </div>
             </div>

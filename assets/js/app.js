@@ -2,8 +2,13 @@ $(document).on('click', '#submitBtn', function() {
     // get value of city name input from user
     cityName = $('#cityName').val();
 
+    // run the function that gets the events to load
     getEvents();
 
+    // run the function that gets the lat-long coordinates
+    getCoordinates()
+
+    // run the function that gets the map to load
     initMap();
     
 });
@@ -33,6 +38,22 @@ function initMap() {
     // })
 }
 
+function getCoordinates() {
+
+    $.ajax({
+        url: 'https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php',
+        method: 'GET',
+        type: 'json',
+        crossDomain: true,
+        headers: {
+            'X-Mashape-Key': 'cmmPLJwYt7mshE6N1VSViGduRp4cp1DKGYZjsnLENenEatXvK1',
+        },
+        data: {
+            location: cityName
+        }
+    })
+    console.log(Results);
+};
 
 function getEvents() {
     var oArgs = {
@@ -63,8 +84,6 @@ function getEvents() {
         };
     });
 }
-
-
 
 // $(document).ready(function () {
 //             //?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
@@ -113,8 +132,6 @@ function getEvents() {
 //     var ll  = '';
 //     var addresses = [];
 
-//     //When user changes the dropdown
-//     $('#cityName').on('change', function(e) {
 //         if ($('#cityName').val() != "") {
 //             cityName=$('#cityName').val();
 //         }
