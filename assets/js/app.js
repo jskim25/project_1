@@ -1,31 +1,31 @@
-function initMap() {
-    // map options
-    var options = {
-        zoom: 8,
-        center: {lat: 41.8781, lng: -87.6298}
-    }
+// function initMap() {
+//     // map options
+//     var options = {
+//         zoom: 8,
+//         center: {lat: 41.8781, lng: -87.6298}
+//     }
     
-    // new map centers to the coordinates listed in var options
-    var map = new google.maps.Map(document.getElementById('map'), options);
+//     // new map centers to the coordinates listed in var options
+//     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    // adds marker on the position specified below
-    var marker = new google.maps.Marker({
-        position: {lat: lat, lng: lng},
-        map: map,
-    })
+//     // adds marker on the position specified below
+//     var marker = new google.maps.Marker({
+//         position: {lat: lat, lng: lng},
+//         map: map,
+//     })
 
-    // var infoWindow = new google.maps.InfoWindow({
-    //     content: "<h1>Chicago IL</h1>"
-    // })
+//     // var infoWindow = new google.maps.InfoWindow({
+//     //     content: "<h1>Chicago IL</h1>"
+//     // })
 
-    // marker.addListener("click", function() {
-    //     infoWindow.open(map, marker);
-    // })
-}
+//     // marker.addListener("click", function() {
+//     //     infoWindow.open(map, marker);
+//     // })
+// }
 
 $(document).ready(function () {
-    $('#cityName').on('change', function(e) {
-        cityName = $('#cityName').val();
+    $(document).on('click', '#submitBtn', function() {
+        cityName = $('#cityInput').val();
         var oArgs = {
             app_key: "5rkz73R4DCcvJcbn",
             where: cityName,
@@ -46,16 +46,13 @@ $(document).ready(function () {
                 var city = oData.events.event[i].city_name;
                 var state = oData.events.event[i].region_abbr;
 
+                // var lat = oData.events.event[i].latitude;
+                // var lng = oData.events.event[i].longitude;
+    
                 // append to table
                 $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
-                
-                // NEED TO CLEAR CONTENTS ON NEW CITY SELECTION
+
             }
-
-            var lat = oData.events.event[i].latitude;
-            var lng = oData.events.event[i].longitude;
-
-            initMap();
         });
     });
 });
