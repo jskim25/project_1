@@ -1,72 +1,66 @@
 body {
   font-family: "Cinzel", serif;
-  background: #ff00ff;
   color: #fff;
-  background-image: url(http://wallpapers-best.com/uploads/posts/2015-10/17_yellow_abstract.jpg);
+  background-image: url(https://wallpapercave.com/wp/o5UXr4f.jpg);
   background-repeat: repeat;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+ }
+ 
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
   font-family: "Cinzel", serif;
-}
-
-.container {
-  background: #dcdcdc;
+ }
+ 
+ .container {
+  background: #ffe4c4;
   margin-top: 7vh;
   border-radius: 25px;
-  border: 15px double #000000;
+  border: 15px double #b22222;
   padding: 0 40px 20px 40px;
-}
-
-.jumbotron {
+ }
+ 
+ .jumbotron {
   background: none;
   text-shadow: 2px 2px 0px #000000;
-}
-
-.btn {
+ }
+ 
+ .btn {
   background: rgba(22, 22, 22, 0.8);
-  color: #ffff00;
+  color: white;
   border: 2px #000 solid;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
   transition-property: all;
-}
-
-.btn:hover {
+ }
+ 
+ .btn:hover {
   color: #fff;
   background: #000000;
   border: 2px #add8e6 solid;
-}
-
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th {
-  vertical-align: middle;
-}
-
-.table > thead {
+ }
+  
+ .table > thead {
   color: 00fa9a;
-}
+ }
 
-.current-time {
+ #event-table {
+  max-width: 100%;
+ }
+ 
+ .current-time {
   color: #add8e6;
   text-shadow: none;
-}
-
-.panel {
+ }
+ 
+ .panel {
   background: none;
   border: 1px dotted #fff;
-}
-
-.panel-title {
+ }
+ 
+ .panel-title {
   font-size: 24px;
   letter-spacing: 2px;
   color: ADD8E6;
@@ -75,46 +69,42 @@ h6 {
   padding: 0 0 10px 0;
   text-shadow: 2px 2px 0px #fff;
   color: #000000;
-}
-
-#sub-left {
+ }
+ 
+ #event-content {
   color: #000000;
-}
+ }
 
-#sub-right {
-  color: #000000;
-}
-
-.help-block {
+ .help-block {
   color: #fff;
-}
-
-.text-center {
+ }
+ 
+ .text-center {
   /* this class isn't centering text */
   text-shadow: 2px 2px 0px #fff;
   color: #000000;
-}
-
-.dropbtn {
+ }
+ 
+ .dropbtn {
   background-color: #000000;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-}
-
-.dropbtn:hover,
-.dropbtn:focus {
+ }
+ 
+ .dropbtn:hover,
+ .dropbtn:focus {
   background-color: #000000;
-}
-
-.dropdown {
+ }
+ 
+ .dropdown {
   position: relative;
   display: inline-block;
-}
-
-.dropdown-content {
+ }
+ 
+ .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -122,50 +112,50 @@ h6 {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
-
-.dropdown-content a {
+ }
+ 
+ .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
-
-.dropdown a:hover {
+ }
+ 
+ .dropdown a:hover {
   background-color: #ddd;
-}
-
-.show {
+ }
+ 
+ .show {
   display: block;
-}
-
-.two-columns {
-  display: table;
-  table-layout: fixed;
-
-  width: 100%;
-}
-.two-columns div {
-  display: table-cell;
-}
-
-.text-center {
+ }
+ 
+ .text-center {
   text-align: center;
-}
-
-#sub-main div {
+ }
+ 
+ #sub-main div {
   vertical-align: top;
-}
-
-.weather {
+ }
+ 
+ .weather {
   color: #000000;
-}
-
-.itinerary {
+  position: fixed;
+  left: 100px;
+ }
+ 
+ .itinerary {
   color: #000000;
-}
-
-.row {
+  position: fixed;
+  right: 100px;
+ }
+ 
+ .row {
   display: flex;
   justify-content: space-between;
-}
+ }
+ 
+ #map {
+  height: 400px;
+  width: 100%;
+  color: #000000;
+ }

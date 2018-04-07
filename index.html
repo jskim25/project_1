@@ -5,47 +5,24 @@
     <meta charset="UTF-8">
     <title>Events by City</title>
 
-
-    <script src="https://apis.google.com/js/platform.js" async defer></script>-->
-
-    <!-- Please don't remove this jquery CDN url. -->
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
-
-  <!-- Commented this out so I wouldn't get an error -->
-    <!-- I put it back in because it is AWESOME!!! -->
+    <!-- EVENTFUL API -->
+    <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+    <!-- JQUERY CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- MAIN JS FILE -->
     <script src="assets/js/app.js"></script>
-    <meta name="google-signin-client_id" content="167602757568-k6027cugtilquc0nh7oal29icsbs44ov.apps.googleusercontent.com">
-    <meta name="google-signin-cookiepolicy" content="single_host_origin">
-    <meta name="google-signin-scope" content="profile email">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- keith: I took this out because Google Maps API error: -->
-    <!-- RefererNotAllowedMapError https://developers.google.com/maps/documentation/javascript/error-messages#referer-not-allowed-map-error -->
-    <!-- Your site URL to be authorized: __file_url__//C:/Users/kfuller/Desktop/code/project_1/index.html? -->
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE&libraries=places"></script> -->
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <!-- MAIN STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<<<<<<< HEAD
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/app.js"></script>
-=======
-
->>>>>>> a475283c0281185e702fac295c42b8276170ed56
-
-
-
 </head>
 
 <body>
-
-
     <div class="container">
         <div class="row">
-            <div class="weather"  id="weather">
+            <div class="weather" id="weather">
                 <h3>Weather</h3>
             </div>
             <div class="itinerary">
@@ -54,13 +31,8 @@
         </div>
 
         <div class="jumbotron text-center">
-
-            <h1>Events by City
-
-            </h1>
-
+            <h1>Events by City</h1>
         </div>
-
 
         <div class="row content">
             <div class="col-sm-12 col-md-3">
@@ -80,51 +52,60 @@
                                     <option>Miami</option>
                                 </select>
                             </div>
-
+                        </form>
                     </div>
 
                     <div>
-
-
                         <button type="submit" class="btn submit" id="submitBtn">Submit</button>
-                        </form>
-
                     </div>
                 </div>
             </div>
+
             <div class="col-sm-12 col-md-9">
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Results</h3>
                     </div>
 
-
-
-
-                    <div id="sub-main" class="two-columns">
-                        <div id="sub-left">
-
-                            <b> EVENTS</b>
-                        </div>
-                        <div id="sub-right">
-                            <b>MAP</b>
+                    <div id="sub-main">
+                        <div id="event-content">
+                            <table class="table table-hover" id='event-table'>
+                                <thead>
+                                    <tr>
+                                        <th>10 Most Popular Events</th>
+                                        <th>Date &amp; Time </th>
+                                        <th>Venue</th>
+                                        <th>Venue Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="map">
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-
-        <embed src="assets/images/Outside.mp3" autostart="true" width="2" height="0">
-
-
-
+        <!-- COMMENTING OUT UNTIL DONE WITH CODE - PLEASE PUT BACK IN WHEN NEEDED
+            <embed src="assets/images/Outside.mp3" autostart="true" width="2" height="0">
+        -->
     </footer>
 
-    <script src="./weather.js"></script>
+    <!-- GOOGLE MAPS API -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0JlfBCu3ufYvKFAJ7CatA3r-hbKMgu2c&callback=initMap">
+    </script>
 
 </body>
 
