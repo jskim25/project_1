@@ -1,4 +1,4 @@
-$(document).on('click', '#submitBtn', function() {
+$(document).on('change', '#cityName', function() {
     // get value of city name input from user
     cityName = $('#cityName').val();
 
@@ -37,6 +37,7 @@ function getEvents() {
             // var lng = oData.events.event[i].longitude;
 
             // append to table
+            $("#event-table > tbody").empty();
             $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
         };
     })
