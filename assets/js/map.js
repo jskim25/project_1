@@ -20,20 +20,20 @@ function makeUrl(mapData) {
 
 function displayMap(strWhere) {
     console.log(`displayMap called with cityName ${strWhere}`)
-//             ////////////////////////////////////////////////
-//             ////////////////////////////////////////////////
-//             ///  STATIC MAP
-//             ////////////////////////////////////////////////
-//             ////////////////////////////////////////////////
-            dlog(`will draw static map next`);
-            mapData.center=strWhere;
-            dlog(`mapData = ${mapData}`);
-            // var U = makeUrl(mapData);
-            // var newImg = $('<img>');
-            // $(newImg).attr('src',U);
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ///  STATIC MAP
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    dlog(`will draw static map next`);
+    mapData.center=strWhere;
+    dlog(mapData);
+    var U = makeUrl(mapData);
+    var newImg = $('<img>');
+    $(newImg).attr('src',U);
 
-            // dlog(`newURL: ${U}`)
+    dlog(`newURL: ${U}`)
 
-            // $('#sub-right').empty();
-            // $('#sub-right').append(newImg);
+    $('#map').empty();
+    $('#map').append(newImg);
 }
