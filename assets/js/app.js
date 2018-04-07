@@ -1,61 +1,68 @@
-// function initMap() {
-//     // map options
-//     var options = {
-//         zoom: 8,
-//         center: {lat: 41.8781, lng: -87.6298}
-//     }
+$(document).on('click', '#submitBtn', function() {
+    // get value of city name input from user
+    cityName = $('#cityName').val();
+
+    getEvents();
+
+    initMap();
     
-//     // new map centers to the coordinates listed in var options
-//     var map = new google.maps.Map(document.getElementById('map'), options);
-
-//     // adds marker on the position specified below
-//     var marker = new google.maps.Marker({
-//         position: {lat: lat, lng: lng},
-//         map: map,
-//     })
-
-//     // var infoWindow = new google.maps.InfoWindow({
-//     //     content: "<h1>Chicago IL</h1>"
-//     // })
-
-//     // marker.addListener("click", function() {
-//     //     infoWindow.open(map, marker);
-//     // })
-// }
-
-$(document).ready(function () {
-    $(document).on('click', '#submitBtn', function() {
-        cityName = $('#cityInput').val();
-        var oArgs = {
-            app_key: "5rkz73R4DCcvJcbn",
-            where: cityName,
-            page_size: 10,
-            sort_order: "popularity",
-        };
-
-        EVDB.API.call("/events/search", oArgs, function (oData) {
-            console.log(oData);
-
-            for (i=0; i<oData.events.event.length; i++) {
-
-                // all the elements needed for event table
-                var event = oData.events.event[i].title;
-                var startTime = oData.events.event[i].start_time;
-                var venue = oData.events.event[i].venue_name;
-                var address = oData.events.event[i].venue_address;
-                var city = oData.events.event[i].city_name;
-                var state = oData.events.event[i].region_abbr;
-
-                // var lat = oData.events.event[i].latitude;
-                // var lng = oData.events.event[i].longitude;
-    
-                // append to table
-                $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
-
-            }
-        });
-    });
 });
+
+function initMap() {
+    // map options
+    var options = {
+        zoom: 8,
+        center: {lat: 41.8781, lng: -87.6298}
+    }
+    
+    // new map centers to the coordinates listed in var options
+    var map = new google.maps.Map(document.getElementById('map'), options);
+
+    // adds marker on the position specified below
+    // var marker = new google.maps.Marker({
+    //     position: {lat: lat, lng: lng},
+    //     map: map,
+    // })
+
+    // var infoWindow = new google.maps.InfoWindow({
+    //     content: "<h1>Chicago IL</h1>"
+    // })
+
+    // marker.addListener("click", function() {
+    //     infoWindow.open(map, marker);
+    // })
+}
+
+
+function getEvents() {
+    var oArgs = {
+        app_key: "5rkz73R4DCcvJcbn",
+        where: cityName,
+        page_size: 10,
+        sort_order: "popularity",
+    };
+
+    EVDB.API.call("/events/search", oArgs, function (oData) {
+        console.log(oData);
+
+        for (i=0; i<oData.events.event.length; i++) {
+
+            // all the elements needed for event table
+            var event = oData.events.event[i].title;
+            var startTime = oData.events.event[i].start_time;
+            var venue = oData.events.event[i].venue_name;
+            var address = oData.events.event[i].venue_address;
+            var city = oData.events.event[i].city_name;
+            var state = oData.events.event[i].region_abbr;
+
+            // var lat = oData.events.event[i].latitude;
+            // var lng = oData.events.event[i].longitude;
+
+            // append to table
+            $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
+        };
+    });
+}
 
 
 
@@ -201,9 +208,3 @@ $(document).ready(function () {
 //         })
 //     })
 // })
-    
-
-
-
-
-    
