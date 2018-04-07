@@ -2,6 +2,8 @@ $(document).on('click', '#submitBtn', function() {
     // get value of city name input from user
     cityName = $('#cityName').val();
 
+    // Show the map for the city
+    displayMap(cityName);
     // run the function that gets the events to load
     getEvents();
 
@@ -9,7 +11,7 @@ $(document).on('click', '#submitBtn', function() {
     getCoordinates()
 
    
-}).done(displayMap(cityName));
+});
 
 function initMap() {
     // map options
