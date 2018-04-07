@@ -82,7 +82,8 @@ function getEvents() {
             // append to table
             $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
         };
-    });
+    })
+    .done(displayMap(cityName))
 }
 
 // $(document).ready(function () {
