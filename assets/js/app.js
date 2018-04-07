@@ -76,12 +76,22 @@ function getEvents() {
             var city = oData.events.event[i].city_name;
             var state = oData.events.event[i].region_abbr;
 
-            // var lat = oData.events.event[i].latitude;
-            // var lng = oData.events.event[i].longitude;
-
             // append to table
-            $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
+            $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td><td>" + "<button class='add-button'>Add</button>" + "</td></tr>");
         };
+    })
+
+    $("body").on("click", ".add-button", function() {
+        var newRow = $(this).closest("tr");
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        // create new button element, append to newRow button element
+        $("#todo-table").append(newRow);
+       
     })
     
 }
