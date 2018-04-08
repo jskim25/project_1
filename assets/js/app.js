@@ -1,4 +1,31 @@
 $(document).ready(function(){
+
+    // Global Variables
+
+    //  Array to hold the results of the current events DB query.
+    var currentEvents = [];
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    ////   Event handler for clicks on a table row
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Table rows don't exist until user queries events API.
+    // So we bind this function to the rows before they exists.
+    // The uniqueness of the selector is its 'data-evtnum' attribute.
+    $('table').on('click', '[data-evtnum]', function(event) {
+
+        //  This is necessary to prevent the event from bubbling up from the TD
+        //  to the TR to the TABLE, resulting in the event firing twice (TD+TR) for each click.
+        event.stopPropagation();
+        var eventNumber = $(this).data('evtnum');
+        console.log(`Table row ${eventNumber} just got clicked`);
+        
+        console.log(`Will now update the map for location ${currentEvents[eventNumber].city_name}, ${currentEvents[eventNumber].region_abbr}`)
+    })
+
+
     /////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
     ////   Initialize firebase
@@ -15,14 +42,14 @@ $(document).ready(function(){
     firebase.initializeApp(config);
 
     var database = firebase.database();
-    var ref = firebase.database().ref('/');
+    var ref = database.ref('/');
 
     /////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
     ////   Populate the city selector dropdown with citynames from firebase
     /////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
-    var cityNames = firebase.database().ref().child('cityNames');
+    var cityNames = ref.child('cityNames');
     cityNames.on('value', function(snapshot) {
         snapshot.val().forEach(element => {
             $('#cityName').append($('<option>').text(element));
@@ -30,6 +57,11 @@ $(document).ready(function(){
     });
     
 
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    ////   User changes the city dropdown.
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
 
     $(document).on('change', '#cityName', function() {
         // get value of city name input from user
@@ -55,23 +87,39 @@ $(document).ready(function(){
 
         EVDB.API.call("/events/search", oArgs, function (oData) {
             console.log(oData);
-
-            for (i=0; i<oData.events.event.length; i++) {
+            currentEvents = oData.events.event;
+            for (i=0; i<currentEvents.length; i++) {
 
                 // all the elements needed for event table
-                var event = oData.events.event[i].title;
-                var startTime = oData.events.event[i].start_time;
-                var venue = oData.events.event[i].venue_name;
-                var address = oData.events.event[i].venue_address;
-                var city = oData.events.event[i].city_name;
-                var state = oData.events.event[i].region_abbr;
+                var event = currentEvents[i].title;
+                var startTime = currentEvents[i].start_time;
+                var venue = currentEvents[i].venue_name;
+                var address = currentEvents[i].venue_address;
+                var city = currentEvents[i].city_name;
+                var state = currentEvents[i].region_abbr;
 
-                // var lat = oData.events.event[i].latitude;
-                // var lng = oData.events.event[i].longitude;
+                // var lat = currentEvents[i].latitude;
+                // var lng = currentEvents[i].longitude;
 
-                // append to table
+                
                 $("#event-table > tbody").empty();
-                $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td></tr>");
+
+                
+                // The row element, and every td element in the row will get an attribute
+                // 'data-evtnum' with a value equal to the index of the event in the events array.
+                // So when any column is clicked, we know the row.
+                var tRow = $(`<tr data-evtnum=${i}>`);
+
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(event));
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(startTime));
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(venue));
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(address));
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(city));
+                $(tRow).append($(`<td data-evtnum=${i}>`).text(state));
+                
+
+                // append row to table
+                $("#event-table > tbody").append(tRow);
             };
         })
         
