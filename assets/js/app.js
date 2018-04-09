@@ -1,5 +1,7 @@
 // PROJECT 1 APP JS FILE
 
+var toDoCount = 0;
+
 $( document ).ready(function() {
     var config = {
         apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
@@ -94,9 +96,19 @@ function getEvents() {
         newRow.find("td:last").remove();
         newRow.find("td:last").remove();
         newRow.find("td:last").remove();
-        // create new button element, append to newRow button element
-        $("#todo-table").append(newRow);
-        
+
+        $("#to-do-table").append(newRow);
+
+        var toDoClose = $("<button>");
+
+        toDoClose.attr("data-to-do", toDoCount);
+        toDoClose.addClass("checkbox");
+        toDoClose.append("✓");
+        newRow = newRow.append(toDoClose);
+    })
+
+    $(document.body).on("click", ".checkbox", function() {
+        $(this).closest("tr").remove();
     })
 }
 
