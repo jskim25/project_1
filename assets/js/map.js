@@ -7,7 +7,7 @@ function dlog(m) {
 
 var mapData = {
     zoom: 13,
-    size: '600x150',
+    size: '600x300',
     maptype: 'roadmap',
     key: 'AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE',
     center: ''

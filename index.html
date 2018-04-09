@@ -9,10 +9,6 @@
     <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
     <!-- JQUERY CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- MAP JS -->
-    <script src="assets/js/map.js"></script>
-    <!-- MAIN JS FILE -->
-    <script src="assets/js/app.js"></script>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- GOOGLE FONTS -->
@@ -33,7 +29,7 @@
         </div>
 
         <div class="row content">
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-12 col-md-4">
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Pick a City</h3>
@@ -41,33 +37,146 @@
                     <div class="panel-body">
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="cityName" placeholder="City">
+                                <select type="text" class="form-control" id="cityName" placeholder="City">
+                                    <option value="">Cities</option>
+                                    <option>Birmingham, Alabama</option>
+                                    <option>Montgomery, Alabama</option>
+                                    <option>Anchorage, Alaska</option>
+                                    <option>Glendale, Arizona</option>
+                                    <option>Tempe, Arizona</option>
+                                    <option>Little Rock, Arkansas</option>
+                                    <option>Mesa, Arizona</option>
+                                    <option>Phoenix, Arizona</option>
+                                    <option>Tucson, Arizona</option>
+                                    <option>Scottsdale, Arizona</option>
+                                    <option>Anaheim, California</option>
+                                    <option>Fresno, California</option>
+                                    <option>Garden Grove, California</option>
+                                    <option>Huntington Beach, California</option>
+                                    <option>Irvine, California</option>
+                                    <option>Long Beach, California</option>
+                                    <option>Los Angeles, California</option>
+                                    <option>Oakland, California</option>
+                                    <option>Pasadena, California</option>
+                                    <option>Sacramento, California</option>
+                                    <option>San Diego, California</option>
+                                    <option>San Francisco, California</option>
+                                    <option>San Jose, California</option>
+                                    <option>Colorado Springs, Colorado</option>
+                                    <option>Denver, Colorado</option>
+                                    <option>Bridgeport, Connecticut</option>
+                                    <option>Washington, DC</option>
+                                    <option>Fort Lauderdale, Florida</option>
+                                    <option>Jacksonville, Florida</option>
+                                    <option>Miami, Florida</option>
+                                    <option>Orlando, Florida</option>
+                                    <option>Tallahassee, Florida</option>
+                                    <option>Tampa, Florida</option>
+                                    <option>Atlanta, Georgia</option>
+                                    <option>Savannah, Georgia</option>
+                                    <option>Honolulu, Hawaii</option>
+                                    <option>Boise, Idaho</option>
+                                    <option>Chicago, Illinois</option>
+                                    <option>Naperville, Illinois</option>
+                                    <option>Rockford, Illinois</option>
+                                    <option>Fort Wayne, Indiana</option>
+                                    <option>Indianapolis, Indiana</option>
+                                    <option>Des Moines, Iowa</option>
+                                    <option>Wichita, Kansas</option>
+                                    <option>Kansas City, Kansas</option>
+                                    <option>Lexington, Kentucky</option>
+                                    <option>Louisville, Kentucky</option>
+                                    <option>Baton Rouge, Louisiana</option>
+                                    <option>New Orleans, Louisiana</option>
+                                    <option>Baltimore, Maryland</option>
+                                    <option>Boston, Massachusetts</option>
+                                    <option>Detroit, Michigan</option>
+                                    <option>Grand Rapids, Michigan</option>
+                                    <option>Minneapolis, Minnesota</option>
+                                    <option>Saint Paul, Minnesota</option>
+                                    <option>Jackson, Mississippi</option>
+                                    <option>Kansas City, Missouri</option>
+                                    <option>Springfield, Missouri</option>
+                                    <option>St. Louis, Missouri</option>
+                                    <option>Lincoln, Nebraska</option>
+                                    <option>Omaha, Nebraska</option>
+                                    <option>Las Vegas, Nevada</option>
+                                    <option>Reno, Nevada</option>
+                                    <option>Jersey City, New Jersey</option>
+                                    <option>Newark, New Jersey</option>
+                                    <option>Albuquerque, New Mexico</option>
+                                    <option>Buffalo, New York</option>
+                                    <option>New York, New York</option>
+                                    <option>Syracuse, New York</option>
+                                    <option>Charlotte, North Carolina</option>
+                                    <option>Durham, North Carolina</option>
+                                    <option>Greensboro, North Carolina</option>
+                                    <option>Raleigh, North Carolina</option>
+                                    <option>Winston–Salem, North Carolina</option>
+                                    <option>Akron, Ohio</option>
+                                    <option>Cincinnati, Ohio</option>
+                                    <option>Cleveland, Ohio</option>
+                                    <option>Columbus, Ohio</option>
+                                    <option>Dayton, Ohio</option>
+                                    <option>Oklahoma City, Oklahoma</option>
+                                    <option>Tulsa, Oklahoma</option>
+                                    <option>Eugene, Oregon</option>
+                                    <option>Portland, Oregon</option>
+                                    <option>Philadelphia, Pennsylvania</option>
+                                    <option>Pittsburgh, Pennsylvania</option>
+                                    <option>Providence, Rhode Island</option>
+                                    <option>Charleston, South Carolina</option>
+                                    <option>Columbia, South Carolina</option>
+                                    <option>Sioux Falls, South Dakota</option>
+                                    <option>Chattanooga, Tennessee</option>
+                                    <option>Memphis, Tennessee</option>
+                                    <option>Nashville, Tennessee</option>
+                                    <option>Arlington, Texas</option>
+                                    <option>Austin, Texas</option>
+                                    <option>Dallas, Texas</option>
+                                    <option>El Paso, Texas</option>
+                                    <option>Fort Worth, Texas</option>
+                                    <option>Houston, Texas</option>
+                                    <option>Irving, Texas</option>
+                                    <option>San Antonio, Texas</option>
+                                    <option>Waco, Texas</option>
+                                    <option>Salt Lake City, Utah</option>
+                                    <option>Alexandria, Virginia</option>
+                                    <option>Hampton, Virginia</option>
+                                    <option>Richmond, Virginia</option>
+                                    <option>Virginia Beach, Virginia</option>
+                                    <option>Bellevue, Washington</option>
+                                    <option>Seattle, Washington</option>
+                                    <option>Spokane, Washington</option>
+                                    <option>Tacoma, Washington</option>
+                                    <option>Vancouver, Washington</option>
+                                    <option>Madison, Wisconsin</option>
+                                    <option>Milwaukee, Wisconsin</option>
+                                </select>
                             </div>
                         </form>
                     </div>
-
-                    <div>
-                        <button type="submit" class="btn submit" id="submitBtn">Submit</button>
-                    </div>
-                    <br>
+                </div>
+                <div class="col-sm-12 col-md-8">
                     <div id="map">
-
-                    </div>
+                        <!-- MAP GOES HERE -->
+                    </div>    
                 </div>
             </div>
+        </div>
 
-            <div class="col-sm-12 col-md-9">
+        <div class="row content">
+            <div class="col-sm-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Results</h3>
+                        <h3 class="panel-title">Top 10 Most Popular Events</h3>
                     </div>
-
                     <div id="sub-main">
                         <div id="event-content">
                             <table class="table table-hover" id='event-table'>
                                 <thead>
                                     <tr class="event-row">
-                                        <th>10 Most Popular Events</th>
+                                        <th>Name</th>
                                         <th>Date &amp; Time </th>
                                         <th>Venue</th>
                                         <th>Venue Address</th>
@@ -85,17 +194,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-
-                <div>
-                </div>
-
-            </div>
             <div class="col-sm-12">
                 <div class="favorites" id="todo-list">
                     <h1>Favorites</h1>
                     <table class="table table-hover">
                         <thead id="todo-table">
+                            <tr class="todo-table">
+                                <th>Name</th>
+                                <th>Date</th>
+                            </tr>
                         </thead>
                         <tbody>
                         </tbody>
@@ -111,6 +218,10 @@
         -->
     </footer>
 
+        <!-- MAP JS -->
+        <script src="assets/js/map.js"></script>
+        <!-- MAIN JS FILE -->
+        <script src="assets/js/app.js"></script>
 </body>
 
 </html>

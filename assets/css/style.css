@@ -5,6 +5,10 @@ body {
   background-repeat: repeat;
  }
  
+.blacktext {
+  color: black;
+}
+
  h1,
  h2,
  h3,
