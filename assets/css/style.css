@@ -134,6 +134,8 @@ body {
  }
  
  #sub-main div {
+
+  overflow: auto;
   vertical-align: top;
  }
  

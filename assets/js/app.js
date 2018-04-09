@@ -88,6 +88,8 @@ $(document).ready(function(){
         EVDB.API.call("/events/search", oArgs, function (oData) {
             console.log(oData);
             currentEvents = oData.events.event;
+            // Clear any previous events from the event table.
+            $("#event-table > tbody").empty();
             for (i=0; i<currentEvents.length; i++) {
 
                 // all the elements needed for event table
@@ -101,8 +103,6 @@ $(document).ready(function(){
                 // var lat = currentEvents[i].latitude;
                 // var lng = currentEvents[i].longitude;
 
-                
-                $("#event-table > tbody").empty();
 
                 
                 // The row element, and every td element in the row will get an attribute
