@@ -54,11 +54,6 @@ body {
   max-width: 100%;
  }
  
- .current-time {
-  color: #add8e6;
-  text-shadow: none;
- }
- 
  .panel {
   background: none;
   border: 1px dotted #fff;
@@ -78,10 +73,6 @@ body {
  #event-content {
   color: #000000;
  }
-
- .help-block {
-  color: #fff;
- }
  
  .text-center {
   /* this class isn't centering text */
@@ -89,19 +80,6 @@ body {
   color: #000000;
  }
  
- .dropbtn {
-  background-color: #000000;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
- }
- 
- .dropbtn:hover,
- .dropbtn:focus {
-  background-color: #000000;
- }
  
  .dropdown {
   position: relative;
