@@ -4,19 +4,19 @@
 var toDoCount = 0;
 
 // firebase credentials
-var config = {
-    apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
-    authDomain: "project-1-5c6e9.firebaseapp.com",
-    databaseURL: "https://project-1-5c6e9.firebaseio.com",
-    projectId: "project-1-5c6e9",
-    storageBucket: "project-1-5c6e9.appspot.com",
-    messagingSenderId: "75312830432"
-};
+// var config = {
+//     apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
+//     authDomain: "project-1-5c6e9.firebaseapp.com",
+//     databaseURL: "https://project-1-5c6e9.firebaseio.com",
+//     projectId: "project-1-5c6e9",
+//     storageBucket: "project-1-5c6e9.appspot.com",
+//     messagingSenderId: "75312830432"
+// };
 
-// initialize firebase
-firebase.initializeApp(config);
+// // initialize firebase
+// firebase.initializeApp(config);
 
-var database = firebase.database();
+// var database = firebase.database();
 
 $(document).on('change', '#cityName', function() {
     // get value of city name input from user
@@ -97,13 +97,13 @@ function getEvents() {
         //     }
         // }
 
-        var obj = $('#table-favorites tbody tr').map(function() {
-            var $row = $(this);
-            var t1 = $row.find(':nth-child(1)').text();
-            var t2 = $row.find(':nth-child(2)').text();
-            console.log(t1);
-            console.log(t2);
-        })
+        // var obj = $('#table-favorites tbody tr').map(function() {
+        //     var $row = $(this);
+        //     var t1 = $row.find(':nth-child(1)').text();
+        //     var t2 = $row.find(':nth-child(2)').text();
+        //     console.log(t1);
+        //     console.log(t2);
+        // })
             // return {
             //     td_1: $row.find(':nth-child(1)').text(),
             //     td_2: $row.find(':nth-child(2)').text(),
