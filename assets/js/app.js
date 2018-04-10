@@ -35,30 +35,13 @@ $(document).on('change', '#cityName', function() {
     weather();
 });
 
-$("#login-form").submit(function(event) {
-
-    event.preventDefault();
-    console.log('clicked')
-    console.log($("#email-input").val());
-    var email = $("#email-input").val();
-    var password = $("#password-input").val();
-
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-        console.log(errorCode, errorMessage);
-      });
-
-})
-
 function getEvents() {
     var oArgs = {
         app_key: "5rkz73R4DCcvJcbn",
         where: cityName,
         page_size: 10,
         sort_order: "popularity",
+        scheme: "&scheme=https",
     };
 
     EVDB.API.call("/events/search", oArgs, function (oData) {
