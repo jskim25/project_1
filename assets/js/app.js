@@ -41,7 +41,7 @@ function getEvents() {
         where: cityName,
         page_size: 10,
         sort_order: "popularity",
-        scheme: "&scheme=none",
+        scheme: "&scheme="\"https\"",
     };
 
     EVDB.API.call("/events/search", oArgs, function (oData) {
