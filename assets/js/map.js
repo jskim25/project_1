@@ -19,13 +19,6 @@ function makeUrl(mapData) {
 }
 
 function displayMap(strWhere) {
-    console.log(`displayMap called with cityName ${strWhere}`)
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    ///  STATIC MAP
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    dlog(`will draw static map next`);
     mapData.center=strWhere;
     dlog(mapData);
     var U = makeUrl(mapData);
