@@ -32,6 +32,7 @@ $(document).on('change', '#cityName', function() {
     // run the function that gets the events to load
     getEvents();
 
+    weather();
 });
 
 $("#login-form").submit(function(event) {
