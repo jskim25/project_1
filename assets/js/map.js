@@ -14,18 +14,11 @@ var mapData = {
 }
 
 function makeUrl(mapData) {
-    var url = 'https://maps.googleapis.com/maps/api/staticmap?';
+    var url = 'http://maps.googleapis.com/maps/api/staticmap?';
     return url + '?' + $.param(mapData)
 }
 
 function displayMap(strWhere) {
-    console.log(`displayMap called with cityName ${strWhere}`)
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    ///  STATIC MAP
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    dlog(`will draw static map next`);
     mapData.center=strWhere;
     dlog(mapData);
     var U = makeUrl(mapData);
