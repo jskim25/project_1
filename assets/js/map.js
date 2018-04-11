@@ -15,7 +15,7 @@ var mapData = {
 
 function makeUrl(mapData) {
     var url = 'http://maps.googleapis.com/maps/api/staticmap?';
-    return url + '?' + $.param(mapData)
+    return url + $.param(mapData)
 }
 
 function displayMap(strWhere) {
