@@ -28,7 +28,9 @@ $(document).on('change', '#cityName', function() {
     // run the function that gets the events to load
     getEvents();
 
+    weather();
 });
+
 
 // function to get the events and append to page
 function getEvents() {
