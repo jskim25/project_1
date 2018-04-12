@@ -15,8 +15,6 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <!-- MAIN STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--Jquery firebase (put into app.js) -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <!-- FIREBASE JS -->
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <!--Moment JS -->
@@ -30,7 +28,7 @@
             <h1>Events by City</h1>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-3">
+            <div class="col-md-6">
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Pick a City</h3>
@@ -159,6 +157,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Weather</h3>
+                            <div class="panel-body" class="weather" id="weather">
+                            </div>
+                        <!-- WEATHER INFO GOES HERE -->
+                    </div>                                        
+               </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
            
             <div class="col-sm-12 col-md-8">
                 <div id="map">
@@ -181,9 +192,7 @@
                                         <th>Event</th>
                                         <th>Date &amp; Time</th>
                                         <th>Venue</th>
-                                        <th>Venue Address</th>
-                                        <th>City</th>
-                                        <th>State</th>
+                                        <th>Address</th>
                                         <th>Add to List</th>
                                     </tr>
                                 </thead>
@@ -194,6 +203,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-sm-6 col-md-4">
                     <h3 class="panel-title">Weather</h3>
                     <div id="t-sub-main">
@@ -202,12 +212,13 @@
                             </div>                                        
                </div>
             </div>
+
             <div class="col-sm-12 col-md-4">
-                <div class="favorites">
+                <div id="favorites-content">
                     <h1>Favorites</h1>
-                    <table class="table table-hover" id="table-favorites">
-                        <thead id="to-do-table">
-                            <tr class="to-do-row">
+                    <table class="table table-hover" id="favorites-table">
+                        <thead>
+                            <tr class="favorites-row">
                                 <th>Event</th>
                                 <th>Date &amp; Time</th>
                             </tr>
@@ -231,7 +242,8 @@
         <!-- MAIN JS FILE -->
         <script src="assets/js/app.js"></script>
         <!--Weather JS -->
-        <script src="./weather.js"></script>
+        <script src="assets/js/weather.js"></script>
+
 </body>
 
 </html>
