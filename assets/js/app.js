@@ -1,10 +1,55 @@
+
+
 $(document).ready(function(){
 
     // Global Variables
-
+    
+    var debug = true;
+    
     //  Array to hold the results of the current events DB query.
     var currentEvents = [];
 
+    var mapData = {
+        zoom: 13,
+        size: '600x150',
+        maptype: 'roadmap',
+        key: 'AIzaSyAVYci8dAx5V0_7LxKYCVGk4rmg39PNLcE',
+        center: ''
+    }
+
+    // Turn logging on or off by using this and setting 'debug'.
+    function dlog(m) {
+        if (debug) {
+            console.log(m)
+        }
+    }
+    
+    //Parameterize the 'mapData' JSON objects, and add it to the maps URL.
+    function makeUrl(mapData) {
+        var url = 'https://maps.googleapis.com/maps/api/staticmap?';
+        return url + '?' + $.param(mapData)
+    }
+    
+    // Display static Google map based on a location string.  i.e. "myCity, myState"
+    function displayMap(strWhere) {
+        dlog(`displayMap called with cityName ${strWhere}`)
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ///  STATIC MAP
+        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        dlog(`will draw static map next`);
+        mapData.center=strWhere;
+        dlog(mapData);
+        var U = makeUrl(mapData);
+        var newImg = $('<img>');
+        $(newImg).attr('src',U);
+    
+        dlog(`newURL: ${U}`)
+    
+        $('#map').empty();
+        $('#map').append(newImg);
+    }    
     /////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
     ////   Event handler for clicks on a table row
@@ -14,15 +59,16 @@ $(document).ready(function(){
     // Table rows don't exist until user queries events API.
     // So we bind this function to the rows before they exists.
     // The uniqueness of the selector is its 'data-evtnum' attribute.
+    /////////////////////////////////////////////////////////////////////////////////////////
     $('table').on('click', '[data-evtnum]', function(event) {
 
         //  This is necessary to prevent the event from bubbling up from the TD
         //  to the TR to the TABLE, resulting in the event firing twice (TD+TR) for each click.
         event.stopPropagation();
         var eventNumber = $(this).data('evtnum');
-        console.log(`Table row ${eventNumber} just got clicked`);
+        dlog(`Table row ${eventNumber} just got clicked`);
         
-        console.log(`Will now update the map for location ${currentEvents[eventNumber].city_name}, ${currentEvents[eventNumber].region_abbr}`)
+        dlog(`Will now update the map for location ${currentEvents[eventNumber].city_name}, ${currentEvents[eventNumber].region_abbr}`)
     })
 
 
@@ -86,7 +132,8 @@ $(document).ready(function(){
         };
 
         EVDB.API.call("/events/search", oArgs, function (oData) {
-            console.log(oData);
+            dlog(oData);
+            // Put the events array in to our global variable.
             currentEvents = oData.events.event;
             // Clear any previous events from the event table.
             $("#event-table > tbody").empty();

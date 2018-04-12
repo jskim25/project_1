@@ -48,8 +48,17 @@ body {
 
  #event-table {
   max-width: 100%;
+  
  }
- 
+ thead {
+  display: block;
+
+ }
+ tbody {
+  display: block;
+  max-height: 200px;
+  overflow-y: scroll;
+ }
  .current-time {
   color: #add8e6;
   text-shadow: none;
