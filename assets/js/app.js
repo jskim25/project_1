@@ -138,7 +138,6 @@ function getEvents() {
         toDoClose.addClass("checkbox");
         toDoClose.append("✓");
         newRow = newRow.append(toDoClose);
-    })
 
         // and push into firebase database
         database.ref().push(eventData);
