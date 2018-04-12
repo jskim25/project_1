@@ -105,20 +105,31 @@ function getEvents() {
 $(document.body).on("click", ".delete-btn", function() {
     $(this).closest("tr").remove();
 
-    // var newRow = $(this).closest('tr');
-    // var rowId = newRow.data();
-    // rootRef.child(dataObj[key].event).remove()
-    // rootRef.child(dataObj[key].date).remove()
-    // //it should remove the firebase object in here
-    // //after firebase confirmation, remove table row
-    // .then(function() {
-    // newRow.remove();
-    // $(this).closest("tr").remove();
-    // })
-    // //Catch errors
-    // .catch(function(error) {
-    // console.log('ERROR');
-    // });  
+    var newRow = $(this).closest('tr');
+    console.log(newRow[0]);
+    var event = $($(newRow).children()[0]).text();
+    var date = $($(newRow).children()[1]).text();
+    
+    // There are better ways to do this.
+    // Iterate through the entire database until we find
+    // an event and date that matches.  Then delete it.
+    ref.once("value", function(snapshot) {
+        // store data object in a variable
+        var dataObj = snapshot.val();
+        // loop through objects to get data in firebase
+        for(let key in dataObj){
+            if ((dataObj[key].event == event) && (dataObj[key].date == date)) {
+                console.log(`Found ${event} ${date} in database`);
+                firebase.database().ref(key).remove();
+                break;
+            }
+        }
+        
+    
+    // If any errors are experienced, log them to console.
+    }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
 });
 
 // create firebase event
