@@ -4,19 +4,19 @@
 var toDoCount = 0;
 
 // firebase credentials
-var config = {
-    apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
-    authDomain: "project-1-5c6e9.firebaseapp.com",
-    databaseURL: "https://project-1-5c6e9.firebaseio.com",
-    projectId: "project-1-5c6e9",
-    storageBucket: "project-1-5c6e9.appspot.com",
-    messagingSenderId: "75312830432"
-};
+// var config = {
+//     apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
+//     authDomain: "project-1-5c6e9.firebaseapp.com",
+//     databaseURL: "https://project-1-5c6e9.firebaseio.com",
+//     projectId: "project-1-5c6e9",
+//     storageBucket: "project-1-5c6e9.appspot.com",
+//     messagingSenderId: "75312830432"
+// };
 
-// initialize firebase
-firebase.initializeApp(config);
+// // initialize firebase
+// firebase.initializeApp(config);
 
-var database = firebase.database();
+// var database = firebase.database();
 
 // when the user selects a city...
 $(document).on('change', '#cityName', function() {
@@ -34,6 +34,8 @@ $(document).on('change', '#cityName', function() {
 
 });
 
+// function to get the events and append to page
+
 function getEvents() {
     // eventful API credentials
     var oArgs = {
@@ -41,9 +43,12 @@ function getEvents() {
         where: cityName,
         page_size: 10,
         sort_order: "popularity",
+        scheme: "&scheme=https",
     };
 
     // eventful API call
+    console.log(oArgs);
+
     EVDB.API.call("/events/search", oArgs, function (oData) {
         console.log(oData);
 
@@ -86,6 +91,54 @@ function getEvents() {
             event: t1,
             date: t2,
         };
+        // find the table row associated with the add button
+        var newRow = $(this).closest("tr");
+
+        // var oTable = document.getElementById('table-favorites');
+        // // console.log(oTable);
+        // var rowLength = oTable.rows.length
+        // for (i=0; i<rowLength; i++) {
+        //     var oCells = oTable.rows.item(i).cells;
+        //     var cellLength = oCells.length;
+        //     for (var j=0; j<cellLength; j++) {
+        //         var cellVal = oCells.item(j).innerHTML;
+        //         // console.log(cellVal);
+        //     }
+        // }
+
+        // var obj = $('#table-favorites tbody tr').map(function() {
+        //     var $row = $(this);
+        //     var t1 = $row.find(':nth-child(1)').text();
+        //     var t2 = $row.find(':nth-child(2)').text();
+        //     console.log(t1);
+        //     console.log(t2);
+        // })
+            // return {
+            //     td_1: $row.find(':nth-child(1)').text(),
+            //     td_2: $row.find(':nth-child(2)').text(),
+            //     td_3: $row.find(':nth-child(3)').text()
+            //    };
+            // }).get();
+
+        // remove the unnecessary table data (only want event name and date/time)
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+        newRow.find("td:last").remove();
+
+        // append this to the page
+        $("#to-do-table").append(newRow);
+
+        // create a button
+        var toDoClose = $("<button>");
+
+        // give it an attribute and append to the table row
+        toDoClose.attr("data-to-do", toDoCount);
+        toDoClose.addClass("checkbox");
+        toDoClose.append("✓");
+        newRow = newRow.append(toDoClose);
+    })
 
         // and push into firebase database
         database.ref().push(eventData);
