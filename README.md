@@ -1,7 +1,7 @@
 # Project_1
 
 ## Synopsis
-The goal was to create a webpage where we connect at least two APIs that gathers and presents data to the user.
+We created a webpage where we connect with three APIs to present useful information to the user.
 
 ## Motivation
 Below is a quick summary to recap things that you can expect: <br />
