@@ -167,8 +167,8 @@ ref.on("value", function(snapshot) {
     for(let key in dataObj){
 
         // make sure this is getting the correct data
-        console.log("event is: ", dataObj[key].event)
-        console.log("date is: ", dataObj[key].date)
+        // console.log("event is: ", dataObj[key].event)
+        // console.log("date is: ", dataObj[key].date)
 
         // append to the page
         $("#favorites-table > tbody").append("<tr><td>" + dataObj[key].event + "</td><td>" + dataObj[key].date + "</td><td>" + "<button class='delete-btn'>✓</button>" + "</td></tr>")
