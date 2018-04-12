@@ -18,10 +18,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var rootRef = firebase.database().ref().child("project-1-5c6e9");
-
-
-// on selection of a city:
+// when the user selects a city...
 $(document).on('change', '#cityName', function() {
     // get value of city name input from user
     cityName = $('#cityName').val();
@@ -31,6 +28,9 @@ $(document).on('change', '#cityName', function() {
     
     // run the function that gets the events to load for that particular city
     getEvents();
+
+    // run the weather API
+    weather();
 
 });
 
@@ -43,43 +43,43 @@ function getEvents() {
         sort_order: "popularity",
     };
 
+    // eventful API call
     EVDB.API.call("/events/search", oArgs, function (oData) {
         console.log(oData);
 
-        // empty the table body of 'event table'
+        // empty the table body of 'event table' first
         $("#event-table").find('tbody').empty();
 
         for (i=0; i<oData.events.event.length; i++) {
-            // gather all the elements needed for event table
+            // grab all the elements that we want to put onto table
             var event = oData.events.event[i].title;
             var startTime = oData.events.event[i].start_time;
             var venue = oData.events.event[i].venue_name;
             var address = oData.events.event[i].venue_address;
-            var city = oData.events.event[i].city_name;
-            var state = oData.events.event[i].region_abbr;
+            // var city = oData.events.event[i].city_name;
+            // var state = oData.events.event[i].region_abbr;
 
-            // append to table
-            $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + city + "</td><td>" + state + "</td><td>" + "<button class='add-button'>Add</button>" + "</td></tr>");
+            // append those items to the table
+            $("#event-table > tbody").append("<tr><td>" + event + "</td><td>" + startTime + "</td><td>" + venue + "</td><td>" + address + "</td><td>" + "<button class='add-button'>Add</button>" + "</td></tr>");
         };
     })
 
+    // when the add button is clicked...
     $("body").on("click", ".add-button", function() {
 
+        // prevent auto-refresh
         event.preventDefault();
 
         // find the table row associated with the add button
         var $row = $(this).closest("tr");
 
         // remove all table data no longer needed (only want event name and date/time)
-        $row.find("td:last").remove();
-        $row.find("td:last").remove();
-        $row.find("td:last").remove();
-        $row.find("td:last").remove();
+
         $row.find("td:last").remove();
         var t1 = $row.find(':nth-child(1)').text();
         var t2 = $row.find(':nth-child(2)').text();
-        console.log(t1);
-        console.log(t2);
+        // console.log(t1);
+        // console.log(t2);
 
         // put these into an object
         var eventData = {
@@ -89,38 +89,64 @@ function getEvents() {
 
         // and push into firebase database
         database.ref().push(eventData);
-
-        ///////////////////////////////////////////////////////
-
-        // // append this to the page
-        // $("#favorites-table").append($row);
-
-        // // create a button
-        // var toDoClose = $("<button>");
-
-        // // give it an attribute and append to the table row
-        // toDoClose.attr("data-to-do", toDoCount);
-        // toDoClose.addClass("checkbox");
-        // toDoClose.append("✓");
-        // newRow = newRow.append(toDoClose);
-
-        ///////////////////////////////////////////////////////
-        
     })
 }
 
-$(document.body).on("click", ".delete-row", function() {
+// function delete() {
+//     var row = document.getElementById("project-1-5c6e9");
+//     firebase.database().ref().child('users/' + user_id).remove();
+
+
+//     reload_page();
+
+//    }
+
+// when the delete button is clicked...
+$(document.body).on("click", ".delete-btn", function() {
     $(this).closest("tr").remove();
+
+    // var newRow = $(this).closest('tr');
+    // var rowId = newRow.data();
+    // rootRef.child(dataObj[key].event).remove()
+    // rootRef.child(dataObj[key].date).remove()
+    // //it should remove the firebase object in here
+    // //after firebase confirmation, remove table row
+    // .then(function() {
+    // newRow.remove();
+    // $(this).closest("tr").remove();
+    // })
+    // //Catch errors
+    // .catch(function(error) {
+    // console.log('ERROR');
+    // });  
 });
 
-rootRef.on("child_added", snap => {
+// create firebase event
+var ref = database.ref();
 
-    var tEvent = snap.child("event").val();
-    var tDate = snap.child("date").val();
+ref.on("value", function(snapshot) {
 
-    $("#favorites-table > tbody").append("<tr><td>" + tEvent + "</td><td>" + tDate + "</td><td>" + "<button class='delete-btn'>Done</button>" + "</td></tr>")
+    // store data object in a variable
+    var dataObj = snapshot.val();
+
+    // empty the favorites table
+    $("#favorites-table").find('tbody').empty();
+
+    // loop through objects to get data in firebase
+    for(let key in dataObj){
+
+        // make sure this is getting the correct data
+        console.log("event is: ", dataObj[key].event)
+        console.log("date is: ", dataObj[key].date)
+
+        // append to the page
+        $("#favorites-table > tbody").append("<tr><td>" + dataObj[key].event + "</td><td>" + dataObj[key].date + "</td><td>" + "<button class='delete-btn'>✓</button>" + "</td></tr>")
+    }
+    
 
 // If any errors are experienced, log them to console.
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
+
+
