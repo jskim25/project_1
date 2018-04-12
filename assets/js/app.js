@@ -93,8 +93,6 @@ function getEvents() {
             event: t1,
             date: t2,
         };
-        // find the table row associated with the add button
-        var newRow = $(this).closest("tr");
 
         // var oTable = document.getElementById('table-favorites');
         // // console.log(oTable);
@@ -121,40 +119,11 @@ function getEvents() {
             //     td_3: $row.find(':nth-child(3)').text()
             //    };
             // }).get();
-
-        // remove the unnecessary table data (only want event name and date/time)
-        newRow.find("td:last").remove();
-        newRow.find("td:last").remove();
-        newRow.find("td:last").remove();
-        newRow.find("td:last").remove();
-        newRow.find("td:last").remove();
-
-        // append this to the page
-        $("#to-do-table").append(newRow);
-
-        // create a button
-        var toDoClose = $("<button>");
-
-        // give it an attribute and append to the table row
-        toDoClose.attr("data-to-do", toDoCount);
-        toDoClose.addClass("checkbox");
-        toDoClose.append("✓");
-        newRow = newRow.append(toDoClose);
-
+        
         // and push into firebase database
         database.ref().push(eventData);
-
     })
 }
-
-// function delete() {
-//     var row = document.getElementById("project-1-5c6e9");
-//     firebase.database().ref().child('users/' + user_id).remove();
-
-
-//     reload_page();
-
-//    }
 
 // when the delete button is clicked...
 $(document.body).on("click", ".delete-btn", function() {
@@ -166,8 +135,7 @@ $(document.body).on("click", ".delete-btn", function() {
     var date = $($(newRow).children()[1]).text();
     
     // There are better ways to do this.
-    // Iterate through the entire database until we find
-    // an event and date that matches.  Then delete it.
+    // Iterate through the entire database until we find an event and date that matches. Then delete it.
     ref.once("value", function(snapshot) {
         // store data object in a variable
         var dataObj = snapshot.val();
@@ -180,14 +148,13 @@ $(document.body).on("click", ".delete-btn", function() {
             }
         }
         
-    
     // If any errors are experienced, log them to console.
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
 });
 
-
+// make a call to Firebase
 ref.on("value", function(snapshot) {
 
     // store data object in a variable
@@ -206,9 +173,8 @@ ref.on("value", function(snapshot) {
         // append to the page
         $("#favorites-table > tbody").append("<tr><td>" + dataObj[key].event + "</td><td>" + dataObj[key].date + "</td><td>" + "<button class='delete-btn'>✓</button>" + "</td></tr>")
     }
-    
 
-// If any errors are experienced, log them to console.
+// if any errors are experienced, log them to console.
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
