@@ -3,20 +3,22 @@
 // variable for the checklist used later
 var toDoCount = 0;
 
-// firebase credentials
-// var config = {
-//     apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
-//     authDomain: "project-1-5c6e9.firebaseapp.com",
-//     databaseURL: "https://project-1-5c6e9.firebaseio.com",
-//     projectId: "project-1-5c6e9",
-//     storageBucket: "project-1-5c6e9.appspot.com",
-//     messagingSenderId: "75312830432"
-// };
+//firebase credentials
+var config = {
+    apiKey: "AIzaSyD1M7vn5mlncIUT5WxX973pMcArUMZG2_0",
+    authDomain: "project-1-5c6e9.firebaseapp.com",
+    databaseURL: "https://project-1-5c6e9.firebaseio.com",
+    projectId: "project-1-5c6e9",
+    storageBucket: "project-1-5c6e9.appspot.com",
+    messagingSenderId: "75312830432"
+};
 
-// // initialize firebase
-// firebase.initializeApp(config);
+// initialize firebase
+firebase.initializeApp(config);
 
-// var database = firebase.database();
+var database = firebase.database();
+// create firebase reference
+var ref = database.ref();
 
 // when the user selects a city...
 $(document).on('change', '#cityName', function() {
@@ -141,6 +143,7 @@ function getEvents() {
 
         // and push into firebase database
         database.ref().push(eventData);
+
     })
 }
 
@@ -184,8 +187,6 @@ $(document.body).on("click", ".delete-btn", function() {
     });
 });
 
-// create firebase event
-var ref = database.ref();
 
 ref.on("value", function(snapshot) {
 
